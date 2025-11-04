@@ -1,10 +1,11 @@
-
+import Header from "./components/Header"
 
 function App() {
+  const container = ``
 
   return (
-    <div className="bg-red-500">
-      <h1>app here</h1>
+    <div className={container}>
+      <Header />
     </div>
   )
 }
