@@ -6,7 +6,7 @@ type Props = {
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export default function Btn({children, ...rest}:Props):JSX.Element{
-    const style = `bg-gradient-to-br from-teal-700 to-lime-500 
+    const style:string = `bg-gradient-to-br from-teal-700 to-lime-500 
                    font-bold text-lg text-orange-300 px-4 py-2 
                    shadow-lg shadow-orange-700/30 rounded-lg
                    transition-transform transition-shadow transition-colors duration-300 ease-in-out 
