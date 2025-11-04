@@ -7,7 +7,6 @@ import DiceSection from "./components/DiceSection"
 import Btn from "./components/Btn"
 
 
-
 function App() {
   const [dice, setDice] = useState<DieType[]>(() => generateNewDice())
   const container = `flex flex-col items-center min-h-screen`
@@ -21,11 +20,19 @@ function App() {
     return diceArr
   }
 
+  const rollDice = () => {}
+
+  const holdId = (id:string) => {
+    setDice(p => p.map(d => d.id === id ? {...d, isHeld : !d.isHeld} : d))
+  }
+
+
+
   return (
     <div className={container}>
       <Header />
       <main className="flex flex-col items-center">
-        <DiceSection dice={dice} />
+        <DiceSection dice={dice} hold={holdId} />
         <Btn>Start game</Btn>
       </main>
     </div>
