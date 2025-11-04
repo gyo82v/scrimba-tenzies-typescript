@@ -1,7 +1,7 @@
 import type {JSX} from "react"
 
 export default function Header():JSX.Element{
-    const header = `bg-gradient-to-br from-teal-700 to-lime-500
+    const header = `bg-gradient-to-br from-teal-700 to-lime-500 w-full
                     flex flex-col items-center gap-4 px-4 py-6 
                     shadow-lg shadow-orange-700/30 border-b-2 border-orange-300`
 

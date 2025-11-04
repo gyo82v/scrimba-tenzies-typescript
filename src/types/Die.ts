@@ -1,5 +1,5 @@
 export type DieType = {
-    id : number,
+    id : string,
     value: number,
     isHeld : boolean
 }

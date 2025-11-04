@@ -7,7 +7,8 @@ type Props = {
 }
 
 export default function DiceSection({dice}:Props):JSX.Element{
-    const section:string = ``
+    const section:string = `grid grid-cols-5 grid-rows-6 gap-3 
+                            my-20 mt-20`
     const diceElement = dice.map(d => (
         <Die data={d} key={d.id} />
     ))

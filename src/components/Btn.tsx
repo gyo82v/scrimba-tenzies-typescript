@@ -11,7 +11,7 @@ export default function Btn({children, ...rest}:Props):JSX.Element{
                    shadow-lg shadow-orange-700/30 rounded-lg
                    transition-transform transition-shadow transition-colors duration-300 ease-in-out 
                    hover:scale-105 active:scale-95 hover:shadow-xl hover:from-lime-500 hover:to-teal-700 
-                   hover:text-orange-400`
+                   hover:text-orange-400 w-8/12`
     return(
         <button {...rest} className={style}>{children}</button>
     )
