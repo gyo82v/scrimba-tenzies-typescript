@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import type { DieType } from "./types/Die"
 import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
@@ -10,8 +10,15 @@ import Btn from "./components/Btn"
 
 function App() {
   const [dice, setDice] = useState<DieType[]>(() => generateNewDice())
+  const buttonRef = useRef<HTMLButtonElement | null>(null)
 
   const isGameWon:boolean = dice.every(d => d.isHeld) && dice.every(d => d.value === dice[0].value)
+
+  useEffect(() => {
+    if(isGameWon){
+      buttonRef.current?.focus()
+    }
+  }, [isGameWon])
 
   function generateNewDice():DieType[]{
     const diceArr = new Array(30).fill(0).map(() =>( {
