@@ -9,7 +9,8 @@ import Btn from "./components/Btn"
 
 function App() {
   const [dice, setDice] = useState<DieType[]>(() => generateNewDice())
-  const container = `flex flex-col items-center min-h-screen`
+
+  const isGameWon:boolean = dice.every(d => d.isHeld) && dice.every(d => d.value === dice[0].value)
 
   function generateNewDice():DieType[]{
     const diceArr = new Array(30).fill(0).map(() =>( {
@@ -20,20 +21,26 @@ function App() {
     return diceArr
   }
 
-  const rollDice = () => {}
+  const rollDice = () => {
+    if(!isGameWon){
+      setDice(prev => prev.map(d => d.isHeld ? d : {...d, value : Math.ceil(Math.random() * 6)}))
+    }else{
+      setDice(generateNewDice)
+    }
+  }
 
   const holdId = (id:string) => {
     setDice(p => p.map(d => d.id === id ? {...d, isHeld : !d.isHeld} : d))
   }
 
-
-
   return (
-    <div className={container}>
+    <div className="flex flex-col items-center min-h-screen">
       <Header />
       <main className="flex flex-col items-center">
         <DiceSection dice={dice} hold={holdId} />
-        <Btn>Start game</Btn>
+        <Btn onClick={rollDice}>
+          {isGameWon ? "New game" : "Roll"}
+        </Btn>
       </main>
     </div>
   )
