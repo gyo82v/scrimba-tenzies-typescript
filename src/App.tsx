@@ -1,6 +1,7 @@
 import { useState } from "react"
 import type { DieType } from "./types/Die"
 import { nanoid } from "nanoid"
+import Confetti from "react-confetti"
 
 import Header from "./components/Header"
 import DiceSection from "./components/DiceSection"
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <div className="flex flex-col items-center min-h-screen">
+      {isGameWon && <Confetti /> }
       <Header />
       <main className="flex flex-col items-center">
         <DiceSection dice={dice} hold={holdId} />
