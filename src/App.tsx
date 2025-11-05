@@ -43,6 +43,9 @@ function App() {
 
   return (
     <div className="flex flex-col items-center min-h-screen">
+      <div aria-live="polite" className="sr-only">
+        {isGameWon && <p>Congratulations!You won! Pres "New game" to start again.</p>}
+      </div>
       {isGameWon && <Confetti /> }
       <Header />
       <main className="flex flex-col items-center">
