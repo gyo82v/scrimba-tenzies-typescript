@@ -47,7 +47,7 @@ function App() {
       <Header />
       <main className="flex flex-col items-center">
         <DiceSection dice={dice} hold={holdId} />
-        <Btn onClick={rollDice}>
+        <Btn onClick={rollDice} ref={buttonRef} onMouseDown={e => e.preventDefault()}>
           {isGameWon ? "New game" : "Roll"}
         </Btn>
       </main>

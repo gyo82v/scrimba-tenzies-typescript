@@ -9,7 +9,7 @@ export default function Die({data, ...rest}:Props):JSX.Element{
                           bg-gradient-to-br  text-lg
                           shadow-lg shadow-orange-500/30 border border-orange-200`
     const effectStyle:string = `transition-transform transition-colors transition-shadow duration-300 ease-in-out 
-                                hover:scale-105 active:scale-95 hover:shadow-xl hover:text-orange-700 
+                                hover:scale-105 active:scale-95 hover:shadow-xl 
                                 hover:from-lime-200 hover:to-teal-400`
     const isHeldStyle:string = `${!data.isHeld ? `${effectStyle} from-teal-400 to-lime-200 text-lime-900` :
                                                 "from-teal-700 to-lime-500 text-lime-300"}`
